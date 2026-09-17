@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anubhav Shukla | Senior Digital Marketing Strategist & Performance Marketer</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #131b2e;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.2);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: #202b42;
+      --gradient: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+      --success: #22c55e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.7; }
+    
+    .container { max-width: 950px; margin: 0 auto; padding: 50px 20px; }
+
+    /* HERO SECTION */
+    .hero { text-align: center; padding: 70px 20px 50px; border-bottom: 1px solid var(--border); }
+    .hero-badge { display: inline-block; padding: 6px 18px; background: rgba(56, 189, 248, 0.12); border: 1px solid var(--accent); color: var(--accent); border-radius: 30px; font-size: 0.85rem; font-weight: 700; margin-bottom: 20px; letter-spacing: 1px; }
+    .hero h1 { font-size: 3.2rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; }
+    .hero p.subtitle { font-size: 1.3rem; color: var(--text); font-weight: 600; margin-bottom: 6px; }
+    .hero p.location { color: var(--muted); font-size: 1rem; }
+
+    /* STATS BANNER */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin: 40px 0 60px; }
+    .stat-card { background: var(--card-bg); padding: 22px; border-radius: 14px; border: 1px solid var(--border); text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    .stat-number { font-size: 2.1rem; font-weight: 800; color: var(--accent); margin-bottom: 4px; }
+    .stat-label { font-size: 0.85rem; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* SECTIONS */
+    .section { margin-bottom: 60px; }
+    .section-header { margin-bottom: 24px; border-bottom: 2px solid var(--border); padding-bottom: 10px; }
+    .section-title { font-size: 1.8rem; font-weight: 800; color: var(--text); }
+    .section-subtitle { font-size: 0.95rem; color: var(--muted); margin-top: 4px; }
+
+    /* BANNER IMAGES */
+    .banner-img { width: 100%; height: 320px; object-fit: cover; border-radius: 16px; margin-bottom: 28px; border: 1px solid var(--border); box-shadow: 0 12px 35px rgba(0,0,0,0.6); }
+
+    /* CASE STUDY BOX */
+    .case-study { background: var(--card-bg); border: 1px solid var(--accent); border-radius: 16px; padding: 30px; margin-bottom: 30px; position: relative; overflow: hidden; }
+    .case-study::before { content: "FEATURED CASE STUDY"; position: absolute; top: 16px; right: 20px; background: rgba(56, 189, 248, 0.15); color: var(--accent); font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px; }
+    .case-study h3 { font-size: 1.5rem; color: var(--text); margin-bottom: 12px; }
+    .case-study p { color: #cbd5e1; font-size: 0.98rem; margin-bottom: 16px; }
+
+    .step-list { list-style: none; padding: 0; margin: 20px 0; }
+    .step-list li { background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent); padding: 12px 18px; margin-bottom: 10px; border-radius: 0 8px 8px 0; font-size: 0.95rem; color: #e2e8f0; }
+    .step-list li strong { color: var(--accent); }
+
+    /* PROJECT CARDS */
+    .projects-grid { display: flex; flex-direction: column; gap: 24px; }
+    .project-card { background: var(--card-bg); padding: 26px; border-radius: 14px; border: 1px solid var(--border); transition: transform 0.2s, border-color 0.2s; }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 10px; }
+    .project-title { font-size: 1.3rem; font-weight: 700; color: #ffffff; }
+    .project-tag { background: rgba(56, 189, 248, 0.15); color: var(--accent); padding: 4px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; }
+    .project-desc { font-size: 0.96rem; color: #cbd5e1; margin-bottom: 18px; }
+
+    /* SKILLS GRID */
+    .skills-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .skill-card { background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border); }
+    .skill-card h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 8px; }
+    .skill-card p { font-size: 0.9rem; color: var(--muted); }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; background: var(--gradient); color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 0.92rem; font-weight: 700; transition: opacity 0.2s; }
+    .btn:hover { opacity: 0.9; }
+    .btn-outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+    .btn-outline:hover { background: var(--accent-glow); }
+    .btn-whatsapp { background: var(--success); color: #fff; }
+    .btn-whatsapp:hover { background: #16a34a; }
+
+    /* PROOF BANNER */
+    .proof-banner { background: linear-gradient(135deg, rgba(2,132,199,0.2) 0%, rgba(56,189,248,0.08) 100%); border: 1px solid var(--accent); padding: 32px; border-radius: 16px; text-align: center; margin-top: 50px; }
+    .proof-banner h3 { font-size: 1.4rem; color: var(--accent); margin-bottom: 10px; }
+    .proof-banner p { font-size: 1rem; color: #cbd5e1; margin-bottom: 20px; max-width: 650px; margin-left: auto; margin-right: auto; }
+
+    footer { text-align: center; color: var(--muted); font-size: 0.88rem; padding: 50px 0 20px; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <span class="hero-badge">Open for Performance Marketing & Strategy Projects</span>
+    <h1>Anubhav Shukla</h1>
+    <p class="subtitle">Digital Marketing Strategist | Performance Ads Specialist | Web Developer</p>
+    <p class="location">📍 Jaipur, Rajasthan, India</p>
+  </div>
+
+  <div class="container">
+
+    <!-- STATS BANNER -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">Meta Ads</div>
+        <div class="stat-label">Institute Lead Funnels</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">High Lead %</div>
+        <div class="stat-label">Student Enrollments</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">₹12–20</div>
+        <div class="stat-label">E-Com Cost Per Purchase</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">Ultra-Low</div>
+        <div class="stat-label">Real Estate CPR</div>
+      </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">About Me & My Core Growth Philosophy</h2>
+        <p class="section-subtitle">Bridging Performance Ads, Funnel Design & Direct Sales Conversion</p>
+      </div>
+      <p style="font-size: 1.05rem; color: #cbd5e1; line-height: 1.8;">
+        I am a results-oriented Digital Marketing Strategist and Web Developer based in Jaipur. My specialty lies in high-intent performance marketing—building campaigns that don't just generate empty clicks or vanity views, but generate qualified, phone-verified leads that turn into revenue. From scaling student enrollments for educational institutes via Meta Lead Ads to building full custom e-commerce stores with low CPP, I handle end-to-end strategy, creative copy, website architecture, and conversion optimization.
+      </p>
+    </div>
+
+    <!-- CASE STUDY: INSTITUTE STUDENT ACQUISITION -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">Deep Dive: Performance Marketing for Education</h2>
+        <p class="section-subtitle">How I generated & converted institute students through Meta Ads and 1-on-1 consultations</p>
+      </div>
+
+      <img src="" alt="Digital Marketing Training & Student Funnel Strategy" class="banner-img">
+
+      <div class="case-study">
+        <h3>🎓 Case Study: Student Lead Generation & Institute Conversions</h3>
+        <p>
+          Educational institutes often struggle with high drop-off rates from lead form to actual enrollment. I engineered a two-stage performance strategy built on targeted Meta Ads (Facebook & Instagram) combined with a structured consultation funnel.
+        </p>
+
+        <ul class="step-list">
+          <li><strong>Step 1: Hyper-Targeted Meta Lead Campaigns</strong> — Designed visual lead ads targeting students interested in skill development, career upgrades, e-commerce, and digital skills.</li>
+          <li><strong>Step 2: Instant Lead Capture & Nurturing</strong> — Utilized instant lead forms and custom landing pages to collect verified contact details while interest was highest.</li>
+          <li><strong>Step 3: 1-on-1 Personalized Consultations</strong> — Conducted one-on-one sessions to address student career goals, resolve doubts, and showcase the practical value of the training program.</li>
+          <li><strong>Step 4: High Conversion Rate</strong> — Transformed cold social media traffic into paying institute students with minimal drop-off, maintaining a low Cost Per Acquisition (CPA).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PERFORMANCE MARKETING DASHBOARD & OTHER NICHES -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">Performance Marketing Across Niches</h2>
+        <p class="section-subtitle">E-Commerce, Real Estate, Local Businesses & Tourism</p>
+      </div>
+
+      <img src="" alt="Digital Marketing Dashboard Analytics" class="banner-img">
+
+      <div class="projects-grid">
+        
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">🎯 Real Estate High-Intent Lead Acquisition</span>
+            <span class="project-tag">Low CPR Campaign</span>
+          </div>
+          <p class="project-desc">Executed Meta & Google ad campaigns for real estate projects, generating high-budget property buyers at an extraordinarily low Cost Per Result (CPR).</p>
+          <a href="https://ambikarealty.in/" target="_blank" class="btn">View Ambika Realty Site ↗</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">🛍️ E-Commerce Scaling (₹12 – ₹20 CPP)</span>
+            <span class="project-tag">ROAS & Conversion Ads</span>
+          </div>
+          <p class="project-desc">Optimized sales funnels and retargeting ads for multiple e-commerce businesses, driving high purchase volume while locking in Cost Per Purchase (CPP) between ₹12 and ₹20.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">💇 Local Salon Growth & Engagement</span>
+            <span class="project-tag">Viral Content & Bookings</span>
+          </div>
+          <p class="project-desc">Drove viral reach, video views, and local customer walk-ins through Instagram reel strategies and targeted local ads for Stylun Salon.</p>
+          <a href="https://www.instagram.com/stylunsalon/" target="_blank" class="btn btn-outline">View Salon Instagram ↗</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- WEB DEVELOPMENT & E-COMMERCE STORES -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">Website Building & Client Projects</h2>
+        <p class="section-subtitle">Custom Web Development for E-Commerce, Tourism & Corporate Clients</p>
+      </div>
+
+      <img src="" alt="E-Commerce Web Building" class="banner-img">
+
+      <div class="projects-grid">
+        
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">Trendwale — Full E-Commerce Store</span>
+            <span class="project-tag">Store Design & Ads</span>
+          </div>
+          <p class="project-desc">Designed and launched the entire Trendwale online store interface, optimized mobile UI/UX for fast checkout, and managed integrated ad campaigns.</p>
+          <a href="https://trendwale.in/" target="_blank" class="btn">Visit Trendwale Store ↗</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">Mayesha Tours & Travels</span>
+            <span class="project-tag">Travel Booking Website</span>
+          </div>
+          <p class="project-desc">Developed a clean, mobile-optimized showcase platform for tour packages, booking requests, and travel itineraries.</p>
+          <a href="https://mayeshatours.com/" target="_blank" class="btn">Visit Travel Website ↗</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">Sai Educare Private Limited (SEPL)</span>
+            <span class="project-tag">Corporate Branding & LinkedIn</span>
+          </div>
+          <p class="project-desc">Managed professional LinkedIn presence, designed corporate promotional creatives, and increased educational audience engagement.</p>
+          <a href="https://in.linkedin.com/company/sai-educare-private-limited" target="_blank" class="btn btn-outline">View LinkedIn Page ↗</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- WEB DEV WORKSTATION IMAGE -->
+    <div class="section">
+      <img src="" alt="Web Development Workstation" class="banner-img">
+    </div>
+
+    <!-- CORE SKILLS -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">Core Skills & Expertise</h2>
+      </div>
+
+      <div class="skills-wrapper">
+        <div class="skill-card">
+          <h3>⚡ Meta & Google Ads</h3>
+          <p>Lead ads setup, pixel tracking, retargeting, custom lookalike audiences, ROAS scaling.</p>
+        </div>
+        <div class="skill-card">
+          <h3>🎓 Student Recruitment Funnels</h3>
+          <p>End-to-end education marketing, Meta lead generation, 1-on-1 counseling conversion flows.</p>
+        </div>
+        <div class="skill-card">
+          <h3>🛒 E-Commerce Development</h3>
+          <p>Custom online store creation, checkout optimization, product copy, low CPP campaigns.</p>
+        </div>
+        <div class="skill-card">
+          <h3>🌐 Full Website Building</h3>
+          <p>Responsive design, speed optimization, landing page construction, UX/UI layouts.</p>
+        </div>
+        <div class="skill-card">
+          <h3>✍️ Content & Creative Strategy</h3>
+          <p>High-converting ad copy, Instagram reel content scripts, brand visuals design.</p>
+        </div>
+        <div class="skill-card">
+          <h3>👨‍🏫 Training & Mentorship</h3>
+          <p>Practical digital marketing workshops, teaching ads strategy and hands-on e-commerce skills.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROOF BANNER & CONTACT -->
+    <div class="proof-banner">
+      <h3>Need Real-Time Ad Dashboard Proofs & Screenshots?</h3>
+      <p>I maintain complete transparency with client ROAS sheets, Meta lead dashboards, and campaign performance records. Click below to chat directly on WhatsApp.</p>
+      
+      <a href="https://wa.me/919263190595?text=Hi%20Anubhav,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20see%20ad%20proofs/work%20samples." target="_blank" class="btn btn-whatsapp">
+        💬 Message on WhatsApp (+91 9263190595)
+      </a>
+
+      <div style="margin-top: 20px;">
+        <span style="color: var(--muted); font-size: 0.9rem;">Email Inquiries: </span>
+        <a href="mailto:definitelyanubhav@gmail.com" style="color: var(--accent); font-weight: 700; text-decoration: none;">definitelyanubhav@gmail.com</a>
+      </div>
+    </div>
+
+    <footer>
+      © 2026 Anubhav Shukla. Digital Marketing Strategist based in Jaipur, Rajasthan.
+    </footer>
+
+  </div>
+</body>
+</html>
